@@ -27,8 +27,10 @@ if [ -f $HOME/.bash_functions ]; then
 fi
 
 # source dircolors definitions
-if [ -f "$HOME/.dir_colors" ]; then
-    eval $(dircolors -b $HOME/.dir_colors)
+if [[ "$OSTYPE" == linux* ]]; then
+    if [ -f "$HOME/.dir_colors" ]; then
+        eval $(dircolors -b $HOME/.dir_colors)
+    fi
 fi
 
 ulimit -S -c 0        # Don't want any coredumps
