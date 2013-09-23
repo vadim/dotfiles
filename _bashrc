@@ -124,13 +124,12 @@ function prompt  {
 }
 
 case $HOSTNAME in
-    patsalo*)   prompt B;;
-    greenlab*)  prompt BGG;;
-    *seawulf)   prompt BGB;;
-    garibaldi*) prompt W garibaldi;;
-    gpfs00*)    prompt Y hpcdata;;
-
-    *)          prompt K;;
+    patsalo.scripps.edu) prompt B local;;
+    gpfs00*)             prompt Y hpcdata;;
+    garibaldi*)          prompt W garibaldi;;
+    greenlab*)           prompt BGG;;
+    *seawulf)            prompt BGB;;
+    *)                   prompt K;;
 esac
 
 unset prompt
