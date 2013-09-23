@@ -1,0 +1,132 @@
+# don't display the copyright page
+startup_message off
+
+# no annoying audible bell, please
+vbell off
+
+# detach on hangup
+autodetach on
+
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+# advertise hardstatus support to $TERMCAP
+term screen-256color
+termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+
+# make the shell in every window a login shell
+shell -$SHELL
+
+# set every new windows hardstatus line to something descriptive
+defhstatus "screen: ^En (^Et)"
+
+defscrollback 1000
+
+# don't kill window after the process died
+# zombie "^["
+
+altscreen on
+
+################
+#
+# xterm tweaks
+#
+
+#xterm understands both im/ic and doesn't have a status line.
+#Note: Do not specify im and ic in the real termcap/info file as
+#some programs (e.g. vi) will not work anymore.
+termcap  xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+#80/132 column switching must be enabled for ^AW to work
+#change init sequence to not switch width
+termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+# Make the output buffer large for (fast) xterms.
+termcapinfo xterm* OL=1000
+
+################
+#
+# keybindings
+#
+
+# remove some stupid / dangerous key bindings
+bind k
+bind ^k
+bind .
+# bind ^\ quit
+bind \\
+bind ^h
+bind h
+bind s
+
+# make them better
+bind 'K' kill
+#bind 'I' login on
+#bind 'O' login off
+bind '}' history
+bind ' ' windowlist -b
+
+bind ^r source "${HOME}/.screenrc"
+bindkey -d -k kb stuff "\010"
+bind j focus down
+bind k focus up
+
+# Yet another hack:
+# Prepend/append register [/] to the paste if ^a^] is pressed.
+# This lets me have autoindent mode in vi.
+#register [ "\033:se noai\015a"
+#register ] "\033:se ai\015a"
+#bind ^] paste [.]
+
+################
+#
+# default windows
+#
+
+#screen -t local 1
+
+# this is the initial window
+select 1
+
+# 256 color xterm
+attrcolor b ".I"
+#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
+
+################
+#
+# user-defined
+#
+activity "activity: window ~%"
+nethack on
+
+msgminwait 2
+
+# Time a message is displayed if screen is not disturbed by
+# other activity. The default is 5 seconds:
+msgwait 3
+
+# Time a message is displayed in case of silence
+silencewait 15
+
+# Do now wait for more input characters
+maptimeout 0
+#caption always "%{= wk} %?%-Lw%?%{= kd} %n*%f %t %{= wk}%?%+Lw%? %{= wk}%=%{= Wk} %C%a %m-%d-%Y %{= wk}" 
+
+escape ^Tt
+hardstatus alwayslastline
+hardstatus string "[%{wb}screen a:%H]%26=[ %-w%{bw}%n %t%{wb}%+w ] %= [ %{w}%l%{w} ]%{w}[%{w} %d/%m/%y %C %A %{w}]%{w}"
+
+escape ``
+
+# Don't you want to start programs which need a DISPLAY ?
+#setenv DISPLAY ':0.0'
+
+# STARTUP SCREENS
+# ===============================================================
+# Defines the time screen delays a new message when one message
+# is currently displayed. The default is 1 second.
+
+# Window numbering starts at 1, not 0.
+bind c screen 1

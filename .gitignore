@@ -4,3 +4,8 @@
 !.aliases
 !.bash_functions
 !.gitignore
+!.ackrc
+!.inputrc
+!.dir_colors
+!.irbrc
+!.screenrc
