@@ -125,6 +125,7 @@ function prompt  {
 
 case $HOSTNAME in
     patsalo.scripps.edu) prompt B local;;
+    jchao*)              prompt R jchao;;
     gpfs00*)             prompt Y hpcdata;;
     garibaldi*)          prompt W garibaldi;;
     greenlab*)           prompt BGG;;

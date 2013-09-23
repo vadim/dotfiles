@@ -56,8 +56,16 @@ export PROMPT_DIRTRIM=4
 
 export MAKEFLAGS='-j4'
 
+if [ -d $HOME/usr/local/bin ]; then
+	PATH=$HOME/usr/local/bin:$PATH
+fi
+
+if [ -d $HOME/bin ]; then
+	PATH=$HOME/bin:$PATH
+fi
+
 if [[ $HOSTNAME == patsalo* ]]; then
-    PATH=$HOME/bin:$HOME/usr/local/bin:/sbin:/usr/sbin:/usr/texbin:$PATH
+    PATH=/sbin:/usr/sbin:/usr/texbin:$PATH
     PATH=/opt/local/libexec/gnubin:/opt/local/libexec/perl5.12:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
     PATH=/usr/local/git/bin:$PATH
@@ -67,7 +75,6 @@ fi
 if [[ $HOSTNAME == garibaldi* || $HOSTNAME == hpc* ]]; then
     export MASSACRE_PATH=$HOME/software/massacre_devel
     PATH=$PATH:/gpfs/group/williamson/bin
-    PATH=$HOME/usr/local/bin:$PATH
     PATH=$PATH:$HOME/usr/local/wx/2.8/bin
     PATH=$PATH:$MASSACRE_PATH/bin
     PATH=$PATH:$HOME/perl5/bin
