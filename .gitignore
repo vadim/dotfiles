@@ -4,6 +4,7 @@
 !.aliases
 !.bash_functions
 !.gitignore
+!.gitconfig
 !.ackrc
 !.inputrc
 !.dir_colors
