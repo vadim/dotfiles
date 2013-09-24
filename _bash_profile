@@ -1,7 +1,7 @@
 #######################
 # ##### GENERAL ##### #
 #######################
-source ~/.bashrc
+source $HOME/.bashrc
 
 if [ -f $HOME/.git-prompt.sh ]; then
     source $HOME/.git-prompt.sh
@@ -18,11 +18,13 @@ fi
 export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 export PERL5LIB=$PERL5LIB:$HOME/software/msparser/perl512
 
+# rbenv section
 if [ -d $HOME/.rbenv ]; then
     PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
 
+# python section
 if [ -d $HOME/usr/python_virtualenv/bin ]; then
 	export VIRTUAL_ENV_DISABLE_PROMPT=0
 	source $HOME/usr/python_virtualenv/bin/activate
@@ -31,6 +33,11 @@ fi
 if [ -d $HOME/usr/python ]; then
     export PYTHONPATH=$HOME/usr/python
     PATH=$PYTHONPATH:$PATH
+fi
+
+# haskell section
+if [ -d $HOME/Library/Haskell/bin ]; then
+    PATH="$HOME/Library/Haskell/bin:$PATH"
 fi
 
 #####################################
