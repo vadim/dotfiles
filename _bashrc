@@ -16,6 +16,10 @@ if [ -f $HOME/.git_completion ]; then
     source $HOME/.git_completion
 fi
 
+if [ -f /opt/local/share/bash-completion/bash_completion ]; then
+    source /opt/local/share/bash-completion/bash_completion
+fi
+
 # source custom aliases
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases
@@ -124,7 +128,7 @@ function prompt  {
 }
 
 case $HOSTNAME in
-    patsalo.scripps.edu) prompt B local;;
+    patsalo*) prompt B local;;
     gpfs00*)             prompt Y hpcdata;;
     garibaldi*)          prompt W garibaldi;;
     greenlab*)           prompt BGG;;
