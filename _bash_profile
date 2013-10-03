@@ -26,8 +26,8 @@ fi
 
 # python section
 if [ -d $HOME/usr/python_virtualenv/bin ]; then
-	export VIRTUAL_ENV_DISABLE_PROMPT=0
-	source $HOME/usr/python_virtualenv/bin/activate
+    export VIRTUAL_ENV_DISABLE_PROMPT=0
+    source $HOME/usr/python_virtualenv/bin/activate
 fi
 
 if [ -d $HOME/usr/python ]; then
@@ -36,14 +36,14 @@ if [ -d $HOME/usr/python ]; then
 fi
 
 if [ -d $HOME/usr/local/bin ]; then
-	PATH=$HOME/usr/local/bin:$PATH
+    PATH=$HOME/usr/local/bin:$PATH
     MANPATH=$MANPATH:$HOME/usr/local/man
     MANPATH=$MANPATH:$HOME/usr/local/share/man
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/local/lib
 fi
 
 if [ -d $HOME/bin ]; then
-	PATH=$HOME/bin:$PATH
+    PATH=$HOME/bin:$PATH
 fi
 
 if [[ $HOSTNAME == patsalo* ]]; then
@@ -72,7 +72,11 @@ MANPATH=$MANPATH:$HOME/perl5/man
 
 # haskell section
 if [ -d $HOME/Library/Haskell/bin ]; then
-    PATH="$HOME/Library/Haskell/bin:$PATH"
+    PATH=$HOME/Library/Haskell/bin:$PATH
+fi
+
+if [ -d /usr/local/smlnj-110.75/ ]; then
+    PATH=$PATH:/usr/local/smlnj-110.75/bin
 fi
 
 #####################################
