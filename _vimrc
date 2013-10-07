@@ -6,7 +6,40 @@ filetype off
 
 execute pathogen#infect()
 
-filetype plugin indent on
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" Autocommand Control
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+if has("autocmd")
+    " Enable file type detection.
+    filetype plugin indent on
+
+    autocmd FocusLost * :wa
+
+    autocmd BufEnter * :syntax sync fromstart
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+    au!
+    " For all text files set 'textwidth' to 80 characters.
+    "autocmd FileType text setl textwidth=80
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+               \ if line("'\"") > 0 && line("'\"") <= line("$") |
+               \   exe "normal g`\"" |
+               \ endif
+    augroup END
+
+    autocmd BufNewFile,BufRead *.R setf r
+    autocmd BufRead .Rprofile setf r
+    autocmd BufNewFile,BufRead *.str setf charmm
+
+    "autocmd BufWritePost .vimrc source $MYVIMRC
+
+    autocmd FileType perl setl complete+=k~/.vim_extras/every_perl_module.txt
+    autocmd FileType * exe('setl dict+='.$VIMRUNTIME.'/syntax/'.&filetype.'.vim')
+endif
 
 set modelines=0
 
@@ -203,41 +236,6 @@ set uc=75 " after 75 characters write a swap file
 
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" Autocommand Control
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-if has("autocmd")
-    " Enable file type detection.
-    "filetype plugin indent on
-
-    autocmd FocusLost * :wa
-
-    autocmd BufEnter * :syntax sync fromstart
-    " Put these in an autocmd group, so that we can delete them easily.
-    augroup vimrcEx
-    au!
-    " For all text files set 'textwidth' to 80 characters.
-    "autocmd FileType text setl textwidth=80
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-               \ if line("'\"") > 0 && line("'\"") <= line("$") |
-               \   exe "normal g`\"" |
-               \ endif
-    augroup END
-
-    autocmd BufNewFile,BufRead *.R setf r
-    autocmd BufRead .Rprofile setf r
-    autocmd BufNewFile,BufRead *.str setf charmm
-
-    "autocmd BufWritePost .vimrc source $MYVIMRC
-
-    autocmd FileType perl setl complete+=k~/.vim_extras/every_perl_module.txt
-    autocmd FileType * exe('setl dict+='.$VIMRUNTIME.'/syntax/'.&filetype.'.vim')
-endif
 
 set timeout
 set ttimeout
