@@ -8,8 +8,12 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # source custom bash completions
-if [ -d $HOME/usr/local/etc/profile.d ]; then
+if [ -f $HOME/usr/local/etc/profile.d/bash_completion.sh ]; then
     source $HOME/usr/local/etc/profile.d/bash_completion.sh
+fi
+
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    source /opt/local/etc/profile.d/bash_completion.sh
 fi
 
 # source custom bash completions
@@ -19,10 +23,6 @@ fi
 
 if [ -f $HOME/.git_completion ]; then
     source $HOME/.git_completion
-fi
-
-if [ -f /opt/local/etc/bash_completion ]; then
-    source /opt/local/etc/bash_completion
 fi
 
 # source custom aliases
