@@ -136,11 +136,11 @@ case $HOSTNAME in
     patsalo*)   prompt B local;;
     hosting*)   prompt M hosting;;
     jchao*)     prompt R jchao;;
-    gpfs00*)    prompt Y hpcdata;;
+    gpfs00*)    prompt M hpcdata;;
     garibaldi*) prompt W garibaldi;;
     greenlab*)  prompt BGG;;
     *seawulf)   prompt BGB;;
-    *)          prompt M;;
+    *)          prompt EMW;;
 esac
 
 unset prompt
