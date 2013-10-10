@@ -16,6 +16,7 @@ set show-all-if-ambiguous on
 set visible-stats on
 set page-completions off
 set expand-tilde on
+set blink-matching-paren on
 
 #"\ep": history-search-backward
 #"\en": history-search-forward 
