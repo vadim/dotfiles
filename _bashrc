@@ -134,13 +134,14 @@ function prompt  {
 
 case $HOSTNAME in
     patsalo*)   prompt B local;;
+    wireless*.scripps.edu) prompt C local;;
     hosting*)   prompt M hosting;;
     jchao*)     prompt R jchao;;
     gpfs00*)    prompt M hpcdata;;
     garibaldi*) prompt W garibaldi;;
     greenlab*)  prompt BGG;;
     *seawulf)   prompt BGB;;
-    *)          prompt EMW;;
+    *)          prompt EMB;;
 esac
 
 unset prompt
