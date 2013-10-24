@@ -1,7 +1,10 @@
 #######################
 # ##### GENERAL ##### #
 #######################
-source $HOME/.bashrc
+
+if [ -f $HOME/.bashrc ]; then 
+    source $HOME/.bashrc  && echo "Sourcing .bashrc"
+fi
 
 if [ -f $HOME/.git-prompt.sh ]; then
     source $HOME/.git-prompt.sh
@@ -79,6 +82,12 @@ fi
 
 if [ -d /usr/local/smlnj-110.75/ ]; then
     PATH=$PATH:/usr/local/smlnj-110.75/bin
+fi
+
+# set the prompt
+
+if [ -f $HOME/.bash_prompt ]; then
+    source $HOME/.bash_prompt
 fi
 
 #####################################
