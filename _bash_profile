@@ -7,6 +7,7 @@ if [ -f $HOME/.git-prompt.sh ]; then
     source $HOME/.git-prompt.sh
 fi
 
+# perl section
 if [ -d $HOME/usr/perl5 ]; then
     PERL5LIB=$PERL5LIB:$HOME/usr/perl5/lib/perl5/
 fi
@@ -47,6 +48,7 @@ if [ -d $HOME/bin ]; then
 fi
 
 if [[ $HOSTNAME == patsalo* ]]; then
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
     PATH=/sbin:/usr/sbin:/usr/texbin:$PATH
     PATH=/opt/local/libexec/gnubin:/opt/local/libexec/perl5.12:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
