@@ -1,18 +1,30 @@
 #######################
 # ##### GENERAL ##### #
 #######################
-source $HOME/.bashrc
+
+if [ -f $HOME/.bashrc ]; then
+    source $HOME/.bashrc
+fi
 
 if [ -f $HOME/.git-prompt.sh ]; then
     source $HOME/.git-prompt.sh
 fi
 
+# perl section
 if [ -d $HOME/usr/perl5 ]; then
     PERL5LIB=$PERL5LIB:$HOME/usr/perl5/lib/perl5/
+
+fi
+
+if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
+	source ~/perl5/perlbrew/etc/bashrc
+	source ~/perl5/perlbrew/etc/perlbrew-completion.bash
 fi
 
 if [ -d $HOME/perl5 ]; then
     PERL5LIB=$PERL5LIB:$HOME/perl5/lib/perl5/
+    MANPATH=$MANPATH:$HOME/perl5/man
+    PATH=$HOME/perl5/bin:$PATH
 fi
 
 export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
@@ -47,11 +59,11 @@ if [ -d $HOME/bin ]; then
 fi
 
 if [[ $HOSTNAME == patsalo* ]]; then
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
     PATH=/sbin:/usr/sbin:/usr/texbin:$PATH
     PATH=/opt/local/libexec/gnubin:/opt/local/libexec/perl5.12:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
     PATH=/usr/local/git/bin:$PATH
-    PATH=$HOME/perl5/bin:$PATH
 fi
 
 if [[ $HOSTNAME == garibaldi* || $HOSTNAME == gpfs* ]]; then
@@ -59,7 +71,6 @@ if [[ $HOSTNAME == garibaldi* || $HOSTNAME == gpfs* ]]; then
     PATH=$PATH:/gpfs/group/williamson/bin
     PATH=$PATH:$HOME/usr/local/wx/2.8/bin
     PATH=$PATH:$MASSACRE_PATH/bin
-    PATH=$PATH:$HOME/perl5/bin
 
     #module load fftw
     #module load python
@@ -68,8 +79,6 @@ if [[ $HOSTNAME == garibaldi* || $HOSTNAME == gpfs* ]]; then
     module load bioperl
 fi
 
-MANPATH=$MANPATH:$HOME/perl5/man
-
 # haskell section
 if [ -d $HOME/Library/Haskell/bin ]; then
     PATH=$HOME/Library/Haskell/bin:$PATH
@@ -77,6 +86,12 @@ fi
 
 if [ -d /usr/local/smlnj-110.75/ ]; then
     PATH=$PATH:/usr/local/smlnj-110.75/bin
+fi
+
+# set the prompt
+
+if [ -f $HOME/.bash_prompt ]; then
+    source $HOME/.bash_prompt
 fi
 
 #####################################
