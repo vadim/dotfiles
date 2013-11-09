@@ -55,17 +55,17 @@ if [[ $HOSTNAME == patsalo* ]]; then
 fi
 
 if [[ $HOSTNAME == garibaldi* || $HOSTNAME == gpfs* ]]; then
-    export MASSACRE_PATH=$HOME/software/massacre_devel
+    #export MASSACRE_PATH=$HOME/software/massacre_devel
     PATH=$PATH:/gpfs/group/williamson/bin
     PATH=$PATH:$HOME/usr/local/wx/2.8/bin
     PATH=$PATH:$MASSACRE_PATH/bin
     PATH=$PATH:$HOME/perl5/bin
 
     #module load fftw
-    #module load massacre
     #module load python
     #module load python-addons
     module load R
+    module load bioperl
 fi
 
 MANPATH=$MANPATH:$HOME/perl5/man
@@ -91,7 +91,7 @@ export PAGER=less
 export LESS="-eRX"
 export EDITOR=vim
 
-export HISTIGNORE="&:cd:[bf]g:x:c:vib:w:qsc:resource:..:l:ll:ls:llr"
+export HISTIGNORE="&:cd:[bf]g:x:c:vib:w:qs:qsc:resource:..:l:ll:ls:llr"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
 export HISTFILESIZE=10000
@@ -104,3 +104,5 @@ export MAKEFLAGS='-j4'
 
 export MANPATH
 export PATH
+
+module load massacre
