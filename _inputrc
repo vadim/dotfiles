@@ -15,13 +15,12 @@ set page-completions off
 set expand-tilde on
 set blink-matching-paren on
 
-#"\ep": history-search-backward
-#"\en": history-search-forward 
-
 # these allow you to use ctrl+left/right arrow keys
 # to jump the cursor over words
-"[1;5D": backward-word
-"[1;5C": forward-word
+#"[1;5D": backward-word
+#"[1;5C": forward-word
+"C-\e[D": backward-word
+"C-\e[C": backward-word
 
 # these allow you to start typing a command and 
 # use the up/down arrow to auto complete from 
