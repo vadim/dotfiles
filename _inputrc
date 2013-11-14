@@ -7,9 +7,6 @@ $include /etc/inputrc
 # do not make noise
 set bell-style off
 
-# use a visible bell if one is available
-set bell-style visible
-
 set completion-ignore-case on
 set mark-directories on
 set show-all-if-ambiguous on
@@ -44,7 +41,7 @@ $if Bash
    "\C-xp": "PATH=${PATH}\e\C-e\C-a\ef\C-f"
    # prepare to type a quoted word -- insert open and close double quotes
    # and move to just after the open quote
-   "\C-x\"": "\"\"\C-b"
+   "\C-x\'": "\"\"\C-b"
    # insert a backslash (testing backslash escapes in sequences and macros)
    "\C-x\\": "\\"
    # Quote the current or previous word
