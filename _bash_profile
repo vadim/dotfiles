@@ -58,15 +58,15 @@ if [ -d $HOME/bin ]; then
     PATH=$HOME/bin:$PATH
 fi
 
-if [[ $HOSTNAME == patsalo* ]]; then
+function load_macbook {
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
     PATH=/sbin:/usr/sbin:/usr/texbin:$PATH
     PATH=/opt/local/libexec/gnubin:/opt/local/libexec/perl5.12:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
     PATH=/usr/local/git/bin:$PATH
-fi
+}
 
-if [ $HOSTNAME == garibaldi* ] || [ $HOSTNAME == gpfs* ] || [ $HOSTNAME == node* ]; then
+function load_hpc {
     #export MASSACRE_PATH=$HOME/software/massacre_devel
     PATH=$PATH:/gpfs/group/williamson/bin
     PATH=$PATH:$HOME/usr/local/wx/2.8/bin
@@ -78,8 +78,15 @@ if [ $HOSTNAME == garibaldi* ] || [ $HOSTNAME == gpfs* ] || [ $HOSTNAME == node*
     module load R
     module load bioperl
     module load massacre
-    echo "Passed the check."
-fi
+    module list
+}
+
+case $HOSTNAME in
+    patsalo*)   load_macbook;;
+    garibaldi*) load_hpc;;
+    gpfs*)      load_hpc;;
+    node*)      load_hpc;;
+esac
 
 # haskell section
 if [ -d $HOME/Library/Haskell/bin ]; then
