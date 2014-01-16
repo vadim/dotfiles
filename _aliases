@@ -2,31 +2,32 @@
 # ##### ALIASES ##### #
 #######################
 
-if [[ "$OSTYPE" == darwin* ]]; then
-    alias l="ls -lhFG"
-    alias ll="ls -alhFG"
-    alias llr="ls -alhFGrt"
-    alias gg="sshfs ga: ~/Volumes/ga"
-    alias ggu="umount ~/Volumes/ga"
+if [[ '$OSTYPE' == darwin* ]]; then
+    alias l='ls -lhFG'
+    alias ll='ls -alhFG'
+    alias llr='ls -alhFGrt'
+    alias gg='sshfs ga: ~/Volumes/ga'
+    alias ggu='umount ~/Volumes/ga'
 else
-    alias l="ls -lhFG --color=always"
-    alias ll="ls -alhFG --color=always"
-    alias llr="ls -alhFGrt --color=always"
+    alias l='ls -lhFG --color=always'
+    alias ll='ls -alhFG --color=always'
+    alias llr='ls -alhFGrt --color=always'
 fi
 
-if [[ "$HOSTNAME" == garibaldi* ]]; then
-    alias qs="qstat -a -u $USER -n"
+if [[ '$HOSTNAME' == garibaldi* ]]; then
+    alias qs='qstat -a -u $USER -n'
 fi
 
-if [ -d "/Applications/VMD 1.9.app" ]; then
-    alias vmd="/Applications/VMD\ 1.9.app/Contents/Resources/VMD.app/Contents/MacOS/VMD"
+if [ -d '/Applications/VMD 1.9.app' ]; then
+    alias vmd='/Applications/VMD\ 1.9.app/Contents/Resources/VMD.app/Contents/MacOS/VMD'
 fi
 
-alias mkdir="mkdir -p"
-alias ci="vi"
-alias dc="cd"
+alias mkdir='mkdir -p'
+alias mkdit='mkdir'
+alias ci='vi'
+alias dc='cd'
 
-alias pd="pushd"
+alias pd='pushd'
 alias pd2='pushd +2'
 alias pd3='pushd +3'
 alias pd4='pushd +4'
@@ -39,10 +40,10 @@ alias perlpath='echo -e ${PERL5LIB//:/\\n}'
 alias x=exit
 alias c=clear
 
-alias R="R --quiet"
-alias vir="vi *.R"
+alias R='R --quiet'
+alias vir='vi *.R'
 
-alias today="date '+%Y_%m_%d'"
-alias mktoday="mkdir `date '+%Y_%m_%d'`"
+alias today='date '+%Y_%m_%d''
+alias mktoday='mkdir `date '+%Y_%m_%d'`'
 
-alias g="git"
+alias g='git'
