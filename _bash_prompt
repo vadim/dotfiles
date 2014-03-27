@@ -1,6 +1,4 @@
-##############################
-# ##### PROMPT SECTION ##### #
-##############################
+# vim: set filetype=sh:
 # setup color variables
 function prompt  {
     local NONE="\[\033[0m\]"    # unsets color to term's fg color

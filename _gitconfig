@@ -1,3 +1,4 @@
+# vim: set filetype=gitconfig:
 [user]
 	name = Vadim Patsalo
 	email = patsalov@gmail.com
@@ -7,6 +8,7 @@
 	co = checkout
 	b  = branch
     p  = pull
+    u  = push
     nb = checkout -b
 	st = status
     ls = ls-files

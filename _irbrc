@@ -1,3 +1,4 @@
+# vim: set filetype=ruby:
 libs = %w{pp irb/completion irb/ext/save-history}
 
 libs.each do |lib| 

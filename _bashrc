@@ -1,3 +1,4 @@
+# vim: set filetype=sh:
 if [ -r /opt/applications/Modules/current/init/bash ]; then
     source /opt/applications/Modules/current/init/bash
 fi

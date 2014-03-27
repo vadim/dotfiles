@@ -1,3 +1,4 @@
+# vim: set filetype=sh:
 function    rmd              { /bin/rm -fr $@; }
 function    e                { ${EDITOR} $@; }
 function    p                { ${PAGER}  $@; }

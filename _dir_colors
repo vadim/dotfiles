@@ -1,3 +1,4 @@
+# vim: set filetype=dircolors:
 # Configuration file for the color ls utility
 #
 # This file goes in the /etc directory, and must be world readable.

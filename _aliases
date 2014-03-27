@@ -1,8 +1,5 @@
-#######################
-# ##### ALIASES ##### #
-#######################
-
-if [[ '$OSTYPE' == darwin* ]]; then
+# vim: set filetype=sh:
+if [[ "$OSTYPE" == darwin* ]]; then
     alias l='ls -lhFG'
     alias ll='ls -alhFG'
     alias llr='ls -alhFGrt'
