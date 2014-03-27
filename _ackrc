@@ -6,3 +6,4 @@
 --color-match=yellow
 --color-lineno=blue
 --flush
+--type-add=tandem:ext:xml

@@ -69,13 +69,14 @@ function load_hpc {
     PATH=$PATH:/gpfs/group/williamson/bin
     PATH=$PATH:$HOME/usr/local/wx/2.8/bin
     PATH=$PATH:$MASSACRE_PATH/bin
+    export R_LIBS=$HOME/R/library
 
-    #module load fftw
-    #module load python
-    #module load python-addons
-    module load R
+    module load tpp
+    module load python
+    module load R/3.0.2
     module load bioperl
     module load massacre
+    module load blast
 }
 
 case $HOSTNAME in
@@ -103,7 +104,6 @@ fi
 #####################################
 # ##### ENVIRONMENT VARIABLES ##### #
 #####################################
-export GZIP="-9"
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="1;35"
 

@@ -12,7 +12,7 @@ autodetach on
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 # advertise hardstatus support to $TERMCAP
-term screen-256color
+term "screen-256color"
 termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
 
 # make the shell in every window a login shell
