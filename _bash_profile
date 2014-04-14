@@ -62,6 +62,7 @@ function load_macbook {
     PATH=/opt/local/libexec/gnubin:/opt/local/libexec/perl5.12:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
     PATH=/usr/local/git/bin:$PATH
+    MANPATH=$MANPATH:/opt/local/man
 }
 
 function load_hpc {
