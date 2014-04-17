@@ -1,16 +1,16 @@
 # vim: set filetype=sh:
 
-if [ -f $HOME/.bashrc ]; then
-    source $HOME/.bashrc
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
 fi
 
-if [ -f $HOME/.git-prompt.sh ]; then
-    source $HOME/.git-prompt.sh
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
 fi
 
 # perl section
-if [ -d $HOME/usr/perl5 ]; then
-    PERL5LIB=$PERL5LIB:$HOME/usr/perl5/lib/perl5/
+if [ -d ~/usr/perl5 ]; then
+    PERL5LIB=$PERL5LIB:~/usr/perl5/lib/perl5/
 
 fi
 
@@ -19,41 +19,45 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 	source ~/perl5/perlbrew/etc/perlbrew-completion.bash
 fi
 
-if [ -d $HOME/perl5 ]; then
-    PERL5LIB=$PERL5LIB:$HOME/perl5/lib/perl5/
-    MANPATH=$MANPATH:$HOME/perl5/man
-    PATH=$HOME/perl5/bin:$PATH
+if [ -f ~/dotfiles/_tmux_completion.sh ]; then
+    source ~/dotfiles/_tmux_completion.sh
+fi
+
+if [ -d ~/perl5 ]; then
+    PERL5LIB=$PERL5LIB:~/perl5/lib/perl5/
+    MANPATH=$MANPATH:~/perl5/man
+    PATH=~/perl5/bin:$PATH
 fi
 
 export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
-export PERL5LIB=$PERL5LIB:$HOME/software/msparser/perl512
+export PERL5LIB=$PERL5LIB:~/software/msparser/perl512
 
 # rbenv section
-if [ -d $HOME/.rbenv ]; then
-    PATH="$HOME/.rbenv/bin:$PATH"
+if [ -d ~/.rbenv ]; then
+    PATH="~/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
 
 # python section
-if [ -d $HOME/usr/python_virtualenv/bin ]; then
+if [ -d ~/usr/python_virtualenv/bin ]; then
     export VIRTUAL_ENV_DISABLE_PROMPT=0
-    source $HOME/usr/python_virtualenv/bin/activate
+    source ~/usr/python_virtualenv/bin/activate
 fi
 
-if [ -d $HOME/usr/python ]; then
-    export PYTHONPATH=$HOME/usr/python
+if [ -d ~/usr/python ]; then
+    export PYTHONPATH=~/usr/python
     PATH=$PYTHONPATH:$PATH
 fi
 
-if [ -d $HOME/usr/local/bin ]; then
-    PATH=$HOME/usr/local/bin:$PATH
-    MANPATH=$MANPATH:$HOME/usr/local/man
-    MANPATH=$MANPATH:$HOME/usr/local/share/man
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/usr/local/lib
+if [ -d ~/usr/local/bin ]; then
+    PATH=~/usr/local/bin:$PATH
+    MANPATH=$MANPATH:~/usr/local/man
+    MANPATH=$MANPATH:~/usr/local/share/man
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/local/lib
 fi
 
-if [ -d $HOME/bin ]; then
-    PATH=$HOME/bin:$PATH
+if [ -d ~/bin ]; then
+    PATH=~/bin:$PATH
 fi
 
 function load_macbook {
@@ -66,11 +70,11 @@ function load_macbook {
 }
 
 function load_hpc {
-    #export MASSACRE_PATH=$HOME/software/massacre_devel
+    #export MASSACRE_PATH=~/software/massacre_devel
     PATH=$PATH:/gpfs/group/williamson/bin
-    PATH=$PATH:$HOME/usr/local/wx/2.8/bin
+    PATH=$PATH:~/usr/local/wx/2.8/bin
     PATH=$PATH:$MASSACRE_PATH/bin
-    export R_LIBS=$HOME/R/library
+    export R_LIBS=~/R/library
 
     module load tpp
     module load python
@@ -88,8 +92,8 @@ case $HOSTNAME in
 esac
 
 # haskell section
-if [ -d $HOME/Library/Haskell/bin ]; then
-    PATH=$HOME/Library/Haskell/bin:$PATH
+if [ -d ~/Library/Haskell/bin ]; then
+    PATH=~/Library/Haskell/bin:$PATH
 fi
 
 if [ -d /usr/local/smlnj-110.75/ ]; then
@@ -98,8 +102,8 @@ fi
 
 # set the prompt
 
-if [ -f $HOME/.bash_prompt ]; then
-    source $HOME/.bash_prompt
+if [ -f ~/.bash_prompt ]; then
+    source ~/.bash_prompt
 fi
 
 #####################################
@@ -120,7 +124,7 @@ export HISTFILESIZE=10000
 export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 
 export PROMPT_COMMAND='history -a'
-export PROMPT_DIRTRIM=4
+export PROMPT_DIRTRIM=3
 
 export MAKEFLAGS='-j4'
 
