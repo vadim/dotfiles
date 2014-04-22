@@ -3,12 +3,10 @@
 use warnings;
 use strict;
 
-my @dotfiles = glob "_*";
+my @dotfiles = glob "*";
 
 foreach my $file (@dotfiles) {
-	my $file_sub;
-	($file_sub = $file) =~ s/^_/\./;
-
-	my $ln_command = "ln -sf ~/dotfiles/$file ~/$file_sub";
+	next if $file =~ m/.pl$/;
+	my $ln_command = "ln -sf ~/dotfiles/$file ~/.$file";
 	print "$ln_command\n" and system $ln_command;
 }
