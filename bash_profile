@@ -21,6 +21,7 @@ function load_hpc {
     module load bioperl
     module load massacre
     module load blast
+    module load openms
 }
 
 case $HOSTNAME in
@@ -106,7 +107,7 @@ export PAGER=less
 export LESS="-eRX"
 export EDITOR=vim
 
-export HISTIGNORE="&:cd:[bf]g:x:c:vib:w:qs:qsc:resource:..:l:ll:ls:llr"
+export HISTIGNORE="&:cd:[bf]g:x:c:w:qs:qsc:..:l:ll:ls:llr:myps"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
 export HISTFILESIZE=10000

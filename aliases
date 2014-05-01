@@ -45,3 +45,4 @@ alias mktoday='mkdir `date '+%Y_%m_%d'`'
 
 alias g='git'
 alias p='parallel'
+alias a='ack'
