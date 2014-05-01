@@ -6,6 +6,7 @@ function load_macbook {
     PATH=/opt/local/libexec/gnubin:/opt/local/libexec/perl5.12:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
     PATH=/usr/local/git/bin:$PATH
+    PATH=$HOME/bin:$PATH
     MANPATH=$MANPATH:/opt/local/man
 }
 
@@ -99,8 +100,8 @@ fi
 #####################################
 # ##### ENVIRONMENT VARIABLES ##### #
 #####################################
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR="1;35"
+export GREP_OPTIONS="--color=auto -E -r --binary-files=without-match --exclude-dir=.git"
+export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 export CLICOLOR=true
 export PAGER=less
