@@ -50,8 +50,8 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 	source ~/perl5/perlbrew/etc/perlbrew-completion.bash
 fi
 
-if [ -f ~/dotfiles/_tmux_completion.sh ]; then
-    source ~/dotfiles/_tmux_completion.sh
+if [ -f ~/dotfiles/tmux_completion.sh ]; then
+    source ~/dotfiles/tmux_completion.sh
 fi
 
 if [ -d ~/perl5 ]; then
