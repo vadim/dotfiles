@@ -71,7 +71,7 @@ if [ -d ~/.rbenv ]; then
 fi
 
 if [ -d ~/python ]; then
-    PYTHONPATH=$PYTHONPATH:~/python
+    PYTHONPATH=$PYTHONPATH:~/python/lib/python2.7/site-packages
     PATH=~/python/bin:$PATH
 fi
 

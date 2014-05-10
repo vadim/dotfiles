@@ -11,10 +11,6 @@ else
     alias llr='ls -alhFGrt --color=always'
 fi
 
-if [[ '$HOSTNAME' == garibaldi* ]]; then
-    alias qs='qstat -a -u $USER -n'
-fi
-
 if [ -d '/Applications/VMD 1.9.app' ]; then
     alias vmd='/Applications/VMD\ 1.9.app/Contents/Resources/VMD.app/Contents/MacOS/VMD'
 fi
@@ -23,6 +19,8 @@ alias mkdir='mkdir -p'
 alias mkdit='mkdir'
 alias ci='vi'
 alias dc='cd'
+alias qs='qstat -a -u $USER -n'
+alias sc='spectrast'
 
 alias pd='pushd'
 alias pd2='pushd +2'
