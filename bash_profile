@@ -18,7 +18,7 @@ function load_hpc {
 
     module load tpp
     module load python
-    module load R/3.0.2
+    module load R
     module load bioperl
     module load massacre
     module load blast
@@ -100,7 +100,7 @@ fi
 #####################################
 # ##### ENVIRONMENT VARIABLES ##### #
 #####################################
-export GREP_OPTIONS="--color=auto -E -r --binary-files=without-match --exclude-dir=.git"
+export GREP_OPTIONS="--color=auto -r --binary-files=without-match --exclude-dir=.git"
 export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 export CLICOLOR=true
