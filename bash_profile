@@ -14,6 +14,7 @@ function load_hpc {
     #export MASSACRE_PATH=~/software/massacre_devel
     PATH=$PATH:/gpfs/group/williamson/bin
     PATH=$PATH:$MASSACRE_PATH/bin
+    PATH=$PATH:~/devel
     export R_LIBS=~/R/library
 
     module load tpp
