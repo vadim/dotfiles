@@ -11,8 +11,8 @@ else
     alias llr='ls -alhFGrt --color=always'
 fi
 
-if [ -d '/Applications/VMD 1.9.app' ]; then
-    alias vmd='/Applications/VMD\ 1.9.app/Contents/Resources/VMD.app/Contents/MacOS/VMD'
+if [ -d '/Applications/VMD 1.9.2.app' ]; then
+    alias vmd='/Applications/VMD\ 1.9.2.app/Contents/Resources/VMD.app/Contents/MacOS/VMD'
 fi
 
 alias mkdir='mkdir -p'
@@ -44,3 +44,4 @@ alias mktoday='mkdir `date '+%Y_%m_%d'`'
 alias g='git'
 alias p='parallel'
 alias a='ack'
+alias t='tmux'

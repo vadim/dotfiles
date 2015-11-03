@@ -64,3 +64,4 @@
 
 [core]
     PreloadIndex = true
+	editor = vim

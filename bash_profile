@@ -3,9 +3,13 @@
 function load_macbook {
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
     PATH=/sbin:/usr/sbin:/usr/texbin:$PATH
-    PATH=/opt/local/libexec/gnubin:/opt/local/libexec/perl5.12:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
     PATH=/usr/local/git/bin:$PATH
+
+    if [ -d /opt/local/lib/mysql56/bin ]; then
+        PATH=/opt/local/lib/mysql56/bin:$PATH
+    fi
+
     PATH=$HOME/bin:$PATH
     MANPATH=$MANPATH:/opt/local/man
 }
@@ -123,3 +127,30 @@ export MAKEFLAGS='-j4'
 export MANPATH
 export PYTHONPATH
 export PATH
+
+##
+# Your previous /Users/vadim/.bash_profile file was backed up as /Users/vadim/.bash_profile.macports-saved_2014-12-26_at_11:26:45
+##
+
+# MacPorts Installer addition on 2014-12-26_at_11:26:45: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+##
+# Your previous /Users/vadim/.bash_profile file was backed up as /Users/vadim/.bash_profile.macports-saved_2015-04-22_at_14:24:49
+##
+
+# MacPorts Installer addition on 2015-04-22_at_14:24:49: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+##
+# Your previous /Users/vadim/.bash_profile file was backed up as /Users/vadim/.bash_profile.macports-saved_2015-10-16_at_07:34:40
+##
+
+# MacPorts Installer addition on 2015-10-16_at_07:34:40: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
