@@ -12,6 +12,10 @@ set page-completions off
 set expand-tilde on
 set blink-matching-paren on
 
+# if there are more than 150 possible completions for a word, ask the
+# user if he wants to see all of them
+set completion-query-items 150
+
 # these allow you to use ctrl+left/right arrow keys
 # to jump the cursor over words
 "[1;5D": backward-word
@@ -59,11 +63,6 @@ set convert-meta off
 # as meta-prefixed characters
 set output-meta on
 
-# if there are more than 150 possible completions for a word, ask the
-# user if he wants to see all of them
-set completion-query-items 150
-
 "\M-?": dump-functions
-
-# bind a key to a function!!!
-C-f: 'myps\n'
+"\C-f": " %>% "
+"\C-y": " %like% "
