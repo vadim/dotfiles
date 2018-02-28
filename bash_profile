@@ -11,7 +11,8 @@ function load_macbook {
     fi
 
     PATH=$HOME/bin:$PATH
-    MANPATH=$MANPATH:/opt/local/man
+    MANPATH="/opt/local/man:$MANPATH"
+    MANPATH="/opt/local/share/man:$MANPATH"
 }
 
 function load_hpc {
@@ -32,6 +33,9 @@ function load_hpc {
 
 case $HOSTNAME in
     patsalo*)   load_macbook;;
+    crypto*)    load_macbook;;
+    wireless*)  load_macbook;;
+    *.local)    load_macbook;;
     garibaldi*) load_hpc;;
     gpfs*)      load_hpc;;
     node*)      load_hpc;;
@@ -49,11 +53,6 @@ fi
 if [ -d ~/usr/perl5 ]; then
     PERL5LIB=$PERL5LIB:~/usr/perl5/lib/perl5/
 
-fi
-
-if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
-	source ~/perl5/perlbrew/etc/bashrc
-	source ~/perl5/perlbrew/etc/perlbrew-completion.bash
 fi
 
 if [ -f ~/dotfiles/tmux_completion.sh ]; then
@@ -128,29 +127,4 @@ export MANPATH
 export PYTHONPATH
 export PATH
 
-##
-# Your previous /Users/vadim/.bash_profile file was backed up as /Users/vadim/.bash_profile.macports-saved_2014-12-26_at_11:26:45
-##
-
-# MacPorts Installer addition on 2014-12-26_at_11:26:45: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-##
-# Your previous /Users/vadim/.bash_profile file was backed up as /Users/vadim/.bash_profile.macports-saved_2015-04-22_at_14:24:49
-##
-
-# MacPorts Installer addition on 2015-04-22_at_14:24:49: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-##
-# Your previous /Users/vadim/.bash_profile file was backed up as /Users/vadim/.bash_profile.macports-saved_2015-10-16_at_07:34:40
-##
-
-# MacPorts Installer addition on 2015-10-16_at_07:34:40: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
+export CDPATH=".:$HOME/.dirlinks"
