@@ -43,5 +43,7 @@ alias mktoday='mkdir `date '+%Y_%m_%d'`'
 
 alias g='git'
 alias p='parallel'
-alias a='ack'
+alias a='ag'
+alias ack='ag'
 alias t='tmux'
+alias tu='top -F -o cpu -i2 -n8 -U $USER'
