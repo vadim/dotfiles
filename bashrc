@@ -22,8 +22,8 @@ if [ -f $HOME/.bash_completion ]; then
     source $HOME/.bash_completion
 fi
 
-if [ -f $HOME/.git_completion ]; then
-    source $HOME/.git_completion
+if [ -f $HOME/.git_completion.bash ]; then
+    source $HOME/.git_completion.bash
 fi
 
 # source custom aliases
