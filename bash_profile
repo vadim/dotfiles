@@ -32,8 +32,6 @@ function load_hpc {
 }
 
 case $HOSTNAME in
-    patsalo*)   load_macbook;;
-    crypto*)    load_macbook;;
     wireless*)  load_macbook;;
     *.local)    load_macbook;;
     garibaldi*) load_hpc;;
