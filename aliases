@@ -3,8 +3,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias l='ls -lhFG'
     alias ll='ls -alhFG'
     alias llr='ls -alhFGrt'
-    alias gg='sshfs ga: ~/Volumes/ga'
-    alias ggu='umount ~/Volumes/ga'
 else
     alias l='ls -lhFG --color=always'
     alias ll='ls -alhFG --color=always'
