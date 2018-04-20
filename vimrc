@@ -18,9 +18,15 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'zeis/vim-kolor'
+Plug 'nanotech/jellybeans.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
-Plug 'luisjure/csound'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-rmarkdown'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 filetype plugin indent on " load filetype-specific indent files

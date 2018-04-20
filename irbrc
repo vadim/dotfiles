@@ -1,9 +1,9 @@
 # vim: set filetype=ruby:
 libs = %w{pp irb/completion irb/ext/save-history}
 
-libs.each do |lib| 
-    begin 
-        require lib 
+libs.each do |lib|
+    begin
+        require lib
     rescue LoadError => err
         $stderr.puts "Couldn't load #{lib}: #{err}"
     end
