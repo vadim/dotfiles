@@ -1,18 +1,14 @@
 # vim: set filetype=sh:
+echo 'hello from bash_profile'
 
 function load_macbook {
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
-    PATH=/sbin:/usr/sbin:/usr/texbin:$PATH
+
+    PATH=/sbin:/usr/sbin:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
-    PATH=/usr/local/git/bin:$PATH
-
-    if [ -d /opt/local/lib/mysql56/bin ]; then
-        PATH=/opt/local/lib/mysql56/bin:$PATH
-    fi
-
     PATH=$HOME/bin:$PATH
-    MANPATH="/opt/local/man:$MANPATH"
-    MANPATH="/opt/local/share/man:$MANPATH"
+
+    MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
 }
 
 function load_hpc {
@@ -47,29 +43,8 @@ if [ -f ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
 fi
 
-# perl section
-if [ -d ~/usr/perl5 ]; then
-    PERL5LIB=$PERL5LIB:~/usr/perl5/lib/perl5/
-
-fi
-
 if [ -f ~/dotfiles/tmux_completion.sh ]; then
     source ~/dotfiles/tmux_completion.sh
-fi
-
-if [ -d ~/perl5 ]; then
-    PERL5LIB=$PERL5LIB:~/perl5/lib/perl5/
-    MANPATH=$MANPATH:~/perl5/man
-    PATH=~/perl5/bin:$PATH
-fi
-
-export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
-export PERL5LIB=$PERL5LIB:~/software/msparser/perl512
-
-# rbenv section
-if [ -d ~/.rbenv ]; then
-    PATH="~/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
 fi
 
 if [ -d ~/python ]; then
@@ -84,17 +59,7 @@ if [ -d ~/usr/local/bin ]; then
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/local/lib
 fi
 
-# haskell section
-if [ -d ~/Library/Haskell/bin ]; then
-    PATH=~/Library/Haskell/bin:$PATH
-fi
-
-if [ -d /usr/local/smlnj-110.75/ ]; then
-    PATH=$PATH:/usr/local/smlnj-110.75/bin
-fi
-
 # set the prompt
-
 if [ -f ~/.bash_prompt ]; then
     source ~/.bash_prompt
 fi
@@ -112,8 +77,8 @@ export EDITOR=vim
 
 export HISTIGNORE="&:cd:[bf]g:x:c:w:qs:qsc:..:l:ll:ls:llr:myps"
 export HISTCONTROL=ignoreboth
-export HISTSIZE=10000
-export HISTFILESIZE=10000
+export HISTSIZE=1000
+export HISTFILESIZE=1000
 export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 
 export PROMPT_COMMAND='history -a'
