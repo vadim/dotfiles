@@ -1,4 +1,6 @@
 # vim: set filetype=sh:
+echo 'hello from bashrc'
+
 if [ -r /opt/applications/Modules/current/init/bash ]; then
     source /opt/applications/Modules/current/init/bash
 fi
@@ -6,15 +8,6 @@ fi
 # source bash completion
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
-fi
-
-# source custom bash completions
-if [ -f $HOME/usr/local/etc/profile.d/bash_completion.sh ]; then
-    source $HOME/usr/local/etc/profile.d/bash_completion.sh
-fi
-
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    source /opt/local/etc/profile.d/bash_completion.sh
 fi
 
 # source custom bash completions
@@ -67,3 +60,8 @@ shopt -s expand_aliases
 #shopt -s interactive_comments
 
 complete -d pd cd rmd
+
+# source custom bash completions
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    source /opt/local/etc/profile.d/bash_completion.sh
+fi
