@@ -66,6 +66,7 @@ case $HOSTNAME in
     wireless*)  prompt C local;;
     gpfs00*)    prompt M hpcdata;;
     garibaldi*) prompt W garibaldi;;
+    login01*)   prompt W login01;;
     *)          prompt EMB;;
 esac
 
