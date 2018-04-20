@@ -31,6 +31,7 @@ case $HOSTNAME in
     wireless*)  load_macbook;;
     *.local)    load_macbook;;
     garibaldi*) load_hpc;;
+    login01*)   load_hpc;;
     gpfs*)      load_hpc;;
     node*)      load_hpc;;
 esac
