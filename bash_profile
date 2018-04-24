@@ -6,25 +6,21 @@ function load_macbook {
 
     PATH=/sbin:/usr/sbin:$PATH
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
-    PATH=$HOME/bin:$PATH
 
     MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
 }
 
 function load_hpc {
-    #export MASSACRE_PATH=~/software/massacre_devel
     PATH=$PATH:/gpfs/group/williamson/bin
     PATH=$PATH:$MASSACRE_PATH/bin
     PATH=$PATH:~/devel
+
     export R_LIBS=~/R/library
 
     module load tpp
-    module load python
     module load R
-    module load bioperl
     module load massacre
     module load blast
-    module load openms
 }
 
 case $HOSTNAME in
@@ -89,6 +85,6 @@ export MAKEFLAGS='-j4'
 
 export MANPATH
 export PYTHONPATH
-export PATH
+export PATH=$HOME/bin:$PATH
 
 export CDPATH=".:$HOME/.dirlinks"
