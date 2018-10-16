@@ -67,6 +67,7 @@ case $HOSTNAME in
     gpfs00*)    prompt M hpcdata;;
     garibaldi*) prompt W garibaldi;;
     login01*)   prompt W login01;;
+    discworld*) prompt R di;;
     *)          prompt EMB;;
 esac
 

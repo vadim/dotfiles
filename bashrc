@@ -1,5 +1,4 @@
 # vim: set filetype=sh:
-echo 'hello from bashrc'
 
 if [ -r /opt/applications/Modules/current/init/bash ]; then
     source /opt/applications/Modules/current/init/bash

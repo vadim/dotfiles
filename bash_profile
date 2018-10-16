@@ -1,5 +1,4 @@
 # vim: set filetype=sh:
-echo 'hello from bash_profile'
 
 function load_macbook {
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
