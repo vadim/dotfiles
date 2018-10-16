@@ -16,17 +16,20 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mileszs/ack.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'zeis/vim-kolor'
-Plug 'nanotech/jellybeans.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 filetype plugin indent on " load filetype-specific indent files
@@ -209,30 +212,14 @@ inoremap <C-U> <C-G>u<C-U>
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_use_caching=1
-"let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 nnoremap <leader>. :CtrlPTag<cr>
 " }}}
 " list settings {{{
 set listchars=tab:▸\ ,eol:¬,trail:_
 set listchars+=precedes:<
 set listchars+=extends:>
-" }}}
-" status line {{{
-set statusline=%f
-set statusline+=\ %y
-set statusline+=%m
-set statusline+=%r
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=\ %=
-set statusline+=\ C:%c
-set statusline+=\ L:%l
-set statusline+=\ [%p%%]
-set statusline+=\ tw=%{&tw}
-set statusline+=\ B:%n
-set statusline+=\ %{strftime('%H:%M')}
 " }}}
 " spelling and useful abbreviations {{{
 if has("spell")
@@ -247,8 +234,10 @@ endif
 
 iab <silent> ydate <C-R>=strftime("%Y/%m/%d")<CR>
 iab <silent> ydu   <C-R>=strftime("%Y_%m_%d")<CR>
+iab <silent> ydd   <C-R>=strftime("%Y-%m-%d")<CR>
 iab <silent> ydt   <C-R>=strftime("%Y/%m/%d %H:%M")<CR>
 iab <silent> yti   <C-R>=strftime("%H:%M")<CR>
+iab <silent> ydx   <C-R>=strftime("%Y-%m-%dT%H:%M%z")<CR>
 iab perline %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 iab bline """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab teh the
@@ -309,8 +298,9 @@ endif
 noremap <leader>/ :Commentary<cr>
 " }}}
 " R markdown {{{
-" iab <silent> rs ```{r}
-" iab <silent> re ```
+iab <silent> rs ```{r}
+iab <silent> re ```
+
 " }}}
 " Syntastic settings {{{
 let g:syntastic_always_populate_loc_list = 1
@@ -339,3 +329,5 @@ set ttyfast " send lines to terminal faster
 set ttyscroll=5
 
 " vim:foldmethod=marker:foldlevel=0
+" autocmd QuickFixCmdPost [^l]* nested cwindow
+" autocmd QuickFixCmdPost    l* nested lwindow
