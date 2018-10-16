@@ -15,19 +15,23 @@ function load_hpc {
     PATH=$PATH:$MASSACRE_PATH/bin
     PATH=$PATH:~/devel
 
-    export R_LIBS=~/R/library
+    export R_LIBS=$HOME/R/library
+    export BOWTIE2_INDEXES=$HOME/genomes/bowtie2_indexes
 
-    module load tpp
     module load R
-    module load massacre
+    module load tpp/4.8.0
+    module load massacre/devel
     module load blast
+    module load python
+    module load bowtie2
+    module load samtools/1.9
 }
 
 case $HOSTNAME in
     wireless*)  load_macbook;;
     *.local)    load_macbook;;
     garibaldi*) load_hpc;;
-    login01*)   load_hpc;;
+    login0*)    load_hpc;;
     gpfs*)      load_hpc;;
     node*)      load_hpc;;
 esac
