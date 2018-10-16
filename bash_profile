@@ -8,6 +8,10 @@ function load_macbook {
     PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
     MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
+
+    if [ -x "$(command -v pandoc)" ]; then
+        eval "$(pandoc --bash-completion)"
+    fi
 }
 
 function load_hpc {
