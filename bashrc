@@ -19,6 +19,11 @@ if [ -f $HOME/.git_completion.bash ]; then
     source $HOME/.git_completion.bash
 fi
 
+
+if [ -x "$(command -v pandoc)" ]; then
+    eval "$(pandoc --bash-completion)"
+fi
+
 # source custom aliases
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases
