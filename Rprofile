@@ -2,7 +2,7 @@
 .First = function() {
 	options(prompt='R> ', continue='+\t', device='quartz')
 	options(digits=3, length=500, max.print=1e5)
-	options(repos=c(CRAN='http://cran.us.r-project.org'))
+	options(repos=c(CRAN='https://cloud.r-project.org/'))
 	options(cores=parallel::detectCores())
 	options(width=as.integer(system2("tput", "cols", stdout=T, stderr=T)))
 
