@@ -1,28 +1,42 @@
 # vim: set filetype=R:
-.First = function() {
-	options(prompt='R> ', continue='+\t', device='quartz')
-	options(digits=3, length=500, max.print=1e5)
-	options(repos=c(CRAN='https://cloud.r-project.org/'))
-	options(cores=parallel::detectCores())
-	options(width=as.integer(system2("tput", "cols", stdout=T, stderr=T)))
-
-	source(file.path(Sys.getenv('HOME'), 'R', 'mystuff.R'))
-}
-
-.Last = function() {
-}
-
-# Attach some more packages
 local({
-    suppressPackageStartupMessages(require(stats))
-    suppressPackageStartupMessages(require(data.table))
-    suppressPackageStartupMessages(require(magrittr))
-    suppressPackageStartupMessages(require(MASS))
-    suppressPackageStartupMessages(require(cluster))
-    suppressPackageStartupMessages(require(lattice))
-    suppressPackageStartupMessages(require(parallel))
-    suppressPackageStartupMessages(library(stringr))
+    suppressMessages(require(data.table))
+    suppressMessages(require(magrittr))
+    suppressMessages(require(MASS))
+    suppressMessages(require(cluster))
+    suppressMessages(require(lattice))
+    suppressMessages(require(parallel))
+    suppressMessages(library(stringr))
 })
+
+
+options(prompt = 'R> ', continue = '+\t', device = 'quartz')
+options(digits = 3, length = 500, max.print = 1e5)
+options(repos             = c(CRAN = "https://cran.rstudio.com/"),
+        browserNLdisabled = TRUE,
+        deparse.max.lines = 2)
+options(cores    = parallel::detectCores())
+options(mc.cores = parallel::detectCores())
+options(width = as.integer(system2('tput', 'cols', stdout = T, stderr = T)))
+# options(width = as.integer(Sys.getenv('COLUMNS')))
+
+options(devtools.name = 'Vadim Patsalo')
+options(devtools.desc.author = 'person("Vadim", "Patsalo",
+        email = "vadim.patsalo@gmail.com",
+        role = c("aut", "cre"))')
+
+if (interactive()) {
+    suppressMessages(require(devtools))
+}
+
+source(file.path(Sys.getenv('HOME'), 'R', 'mystuff.R'))
+
+.First = function() {
+    set.seed(31415926)
+    setDTthreads(0)
+}
+
+.Last  = function() { }
 
 setHook(packageEvent('grDevices', 'onLoad'),
         function(...) grDevices::quartz.options(width=5, height=5, pointsize=12))

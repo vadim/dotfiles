@@ -1,67 +1,67 @@
 # vim: set filetype=gitconfig:
 [user]
-	name = Vadim Patsalo
-	email = patsalov@gmail.com
+    name = Vadim Patsalo
+    email = patsalov@gmail.com
 
 [alias]
-	ci = commit -a
-	co = checkout
-	b  = branch
+    ci = commit -a
+    co = checkout
+    b  = branch
     p  = pull
     u  = push
     nb = checkout -b
-	st = status
+    st = status
     ls = ls-files
-	sl = stash list
-	sa = stash apply
-	sd = stash drop
-	lo = log --pretty=oneline
+    sl = stash list
+    sa = stash apply
+    sd = stash drop
+    lo = log --pretty=oneline
     ff = flow feature
     fr = flow release
     fh = flow hotfix
-	vd = difftool -y -t vimdiff
-	undo-commit = reset --soft HEAD^
-	unstage = reset HEAD --
-	showtrackedignored = ls-files -i --exclude-standard
-	last = log -1 HEAD
+    vd = difftool -y -t vimdiff
+    undo-commit = reset --soft HEAD^
+    unstage = reset HEAD --
+    showtrackedignored = ls-files -i --exclude-standard
+    last = log -1 HEAD
 
 [mirror]
-	summary = true
+    summary = true
 
 [apply]
-	whitespace = nowarn
+    whitespace = nowarn
 
 [color]
-	branch      = auto
-	diff        = auto
-	status      = auto
-	pager       = true
-	interactive = auto
+    branch      = auto
+    diff        = auto
+    status      = auto
+    pager       = true
+    interactive = auto
 
 [color "branch"]
-	current = yellow reverse
-	local   = yellow
-	remote  = green
+    current = yellow reverse
+    local   = yellow
+    remote  = green
 
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old  = red bold
-	new  = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old  = red bold
+    new  = green bold
 
 [color "status"]
-	added     = green
-	changed   = yellow
-	untracked = red
+    added     = green
+    changed   = yellow
+    untracked = red
 
 [push]
-   default = tracking
+    default = tracking
 
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 [help]
-	autocorrect = 1
+    autocorrect = 1
 
 [core]
     PreloadIndex = true
-	editor = vim
+    editor = vim

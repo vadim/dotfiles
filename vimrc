@@ -148,6 +148,11 @@ nmap <leader>w :w<CR>
 nmap <silent}<leader>q :wqa<CR>
 inoremap jk <esc>
 
+" quotes
+" nnoremap <silent><leader>a" ciw""<Esc>P
+" nnoremap <silent><leader>a' ciw''<Esc>P
+" nnoremap <silent><leader>ad daW"=substitute(@@,"'\\\|\"","","g")<CR>Pj
+
 nmap <silent><leader>p :set paste!
             \<CR><Bar>:echo "Paste: "
             \. strpart("OffOn", 3 * &paste, 3)<CR>

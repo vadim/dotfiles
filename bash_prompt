@@ -62,14 +62,13 @@ function prompt  {
 }
 
 case $HOSTNAME in
-    *.local)    prompt B local;;
-    wireless*)  prompt C local;;
-    gpfs00*)    prompt M hpcdata;;
-    garibaldi*) prompt W garibaldi;;
-    login00*)   prompt W garibaldi;;
-    login01*)   prompt W login01;;
-    discworld*) prompt R di;;
-    *)          prompt EMB;;
+    *.local)        prompt C local;;
+    wireless*)      prompt C local;;
+    *dynamic.ucsd*) prompt C local;;
+    garibaldi*)     prompt W garibaldi;;
+    login0*)        prompt W login01;;
+    discworld*)     prompt R di;;
+    *)              prompt EMB;;
 esac
 
 unset prompt

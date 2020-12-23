@@ -88,7 +88,7 @@ export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 export PROMPT_COMMAND='history -a'
 export PROMPT_DIRTRIM=3
 
-export MAKEFLAGS='-j4'
+export MAKEFLAGS="-j$(sysctl -n hw.ncpu)"
 
 export MANPATH
 export PYTHONPATH
