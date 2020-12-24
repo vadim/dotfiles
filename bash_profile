@@ -11,6 +11,9 @@ function load_macbook {
     if [ -x "$(command -v pandoc)" ]; then
         eval "$(pandoc --bash-completion)"
     fi
+
+
+    export MAKEFLAGS="-j$(sysctl -n hw.ncpu)"
 }
 
 function load_hpc {
@@ -22,12 +25,16 @@ function load_hpc {
     export BOWTIE2_INDEXES=$HOME/genomes/bowtie2_indexes
 
     module load R
+    module load cmake/3.16.2
+    module load gcc/7.3.0
     module load tpp/4.8.0
     module load massacre/devel
     module load blast
     module load python
     module load bowtie2
     module load samtools/1.9
+
+    export MAKEFLAGS="-j8"
 }
 
 case $HOSTNAME in
@@ -88,10 +95,11 @@ export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:  "
 export PROMPT_COMMAND='history -a'
 export PROMPT_DIRTRIM=3
 
-export MAKEFLAGS="-j$(sysctl -n hw.ncpu)"
-
 export MANPATH
 export PYTHONPATH
 export PATH=$HOME/bin:$PATH
 
 export CDPATH=".:$HOME/.dirlinks"
+
+export CC=/opt/applications/gcc/7.3.0/bin/gcc
+export CXX=/opt/applications/gcc/7.3.0/bin/c++
