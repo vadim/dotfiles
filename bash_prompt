@@ -65,8 +65,7 @@ case $HOSTNAME in
     *.local)        prompt C local;;
     wireless*)      prompt C local;;
     *dynamic.ucsd*) prompt C local;;
-    garibaldi*)     prompt W garibaldi;;
-    login0*)        prompt W login01;;
+    login0*)        prompt W;;
     discworld*)     prompt R di;;
     *)              prompt EMB;;
 esac
