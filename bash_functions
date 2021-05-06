@@ -26,7 +26,7 @@ function    lpsu             { ps  ux $@ | p; }
 function    myps             { ps $@ -u $USER -o pid,%cpu,%mem,time,command ; }
 function    pp               { myps f | awk '!/awk/ && $0~var' var=${1:-".*"} ; }
 
-# Estimate file space usage 
+# Estimate file space usage
 if [[ "$OSTYPE" == darwin* ]]; then
     function    duh	             { du -d1 -h $@; }
 else
@@ -49,7 +49,7 @@ function rename {
    done
 }
 
-function rept { 
+function rept {
    delay=$1;
    shift;
    while true; do
@@ -61,12 +61,12 @@ function rept {
 # Backup functions
 function buh () { cp $1 ~/.backup/${1}-`date +%Y%m%d%H%M`.backup; }
 
-function bu () { 
-    if [ "`dirname $1`" == "." ]; then 
-        mkdir -p ~/.backup/`pwd`; 
-        cp $1 ~/.backup/`pwd`/$1-`date +%Y%m%d%H%M`.backup; 
-    else 
-        mkdir -p ~/.backup/`dirname $1`; 
-        cp $1 ~/.backup/$1-`date +%Y%m%d%H%M`.backup; 
-    fi 
-} 
+function bu () {
+    if [ "`dirname $1`" == "." ]; then
+        mkdir -p ~/.backup/`pwd`;
+        cp $1 ~/.backup/`pwd`/$1-`date +%Y%m%d%H%M`.backup;
+    else
+        mkdir -p ~/.backup/`dirname $1`;
+        cp $1 ~/.backup/$1-`date +%Y%m%d%H%M`.backup;
+    fi
+}
