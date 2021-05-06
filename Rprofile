@@ -10,20 +10,26 @@ local({
 })
 
 
-options(prompt = 'R> ', continue = '+\t', device = 'quartz')
-options(digits = 3, length = 500, max.print = 1e5)
+options(prompt    = 'R> ',
+        continue  = '+\t',
+        device    = 'quartz',
+        digits    = 3,
+        length    = 500,
+        max.print = 1e5)
+
 options(repos             = c(CRAN = "https://cran.rstudio.com/"),
         browserNLdisabled = TRUE,
         deparse.max.lines = 2)
+
 options(cores    = parallel::detectCores())
 options(mc.cores = parallel::detectCores())
-options(width = as.integer(system2('tput', 'cols', stdout = T, stderr = T)))
+# options(width = as.integer(system2('tput', 'cols', stdout = T, stderr = T)))
 # options(width = as.integer(Sys.getenv('COLUMNS')))
 
-options(devtools.name = 'Vadim Patsalo')
+options(devtools.name        = 'Vadim Patsalo')
 options(devtools.desc.author = 'person("Vadim", "Patsalo",
-        email = "vadim.patsalo@gmail.com",
-        role = c("aut", "cre"))')
+                       email = "vadim.patsalo@gmail.com",
+                        role = c("aut", "cre"))')
 
 if (interactive()) {
     suppressMessages(require(devtools))
@@ -39,4 +45,6 @@ source(file.path(Sys.getenv('HOME'), 'R', 'mystuff.R'))
 .Last  = function() { }
 
 setHook(packageEvent('grDevices', 'onLoad'),
-        function(...) grDevices::quartz.options(width=5, height=5, pointsize=12))
+        function(...) grDevices::quartz.options(width     = 5,
+                                                height    = 5,
+                                                pointsize = 12))
