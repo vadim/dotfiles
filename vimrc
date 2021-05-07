@@ -336,3 +336,9 @@ set ttyscroll=5
 " vim:foldmethod=marker:foldlevel=0
 " autocmd QuickFixCmdPost [^l]* nested cwindow
 " autocmd QuickFixCmdPost    l* nested lwindow
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
