@@ -3,10 +3,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias l='ls -lhFG'
     alias ll='ls -alhFG'
     alias llr='ls -alhFGrt'
+    alias tu='top -F -o cpu -i2 -n8 -U$USER'
 else
     alias l='ls -lhFG --color=always'
     alias ll='ls -alhFG --color=always'
     alias llr='ls -alhFGrt --color=always'
+    alias tu='top -o'%CPU' -d2 -U$USER'
 fi
 
 if [ -d '/Applications/VMD 1.9.2.app' ]; then
@@ -17,8 +19,7 @@ alias mkdir='mkdir -p'
 alias mkdit='mkdir'
 alias ci='vi'
 alias dc='cd'
-alias qs='qstat -a -u $USER -n'
-alias sc='spectrast'
+alias qs='squeue -a -u $USER'
 
 alias pd='pushd'
 alias pd2='pushd +2'
@@ -34,7 +35,7 @@ alias x=exit
 alias c=clear
 
 alias R='R --quiet'
-alias vir='vi *.R'
+alias r='R'
 
 alias today='date '+%Y_%m_%d''
 alias mktoday='mkdir `date '+%Y_%m_%d'`'
@@ -44,5 +45,5 @@ alias p='parallel'
 alias a='ag'
 alias ack='ag'
 alias t='tmux'
-alias tu='top -F -o cpu -i2 -n8 -U $USER'
 alias tre='tree'
+alias grep='grep --color=auto -r --binary-files=without-match --exclude-dir=.git'
