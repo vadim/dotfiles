@@ -1,5 +1,4 @@
 # vim: set filetype=sh:
-
 function load_macbook {
     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
 
@@ -16,7 +15,7 @@ function load_macbook {
     export MAKEFLAGS="-j$(sysctl -n hw.ncpu)"
 }
 
-function load_hpc {
+function load_gari {
     PATH=$PATH:/gpfs/group/williamson/bin
     PATH=$PATH:$MASSACRE_PATH/bin
     PATH=$PATH:~/devel
@@ -37,14 +36,27 @@ function load_hpc {
     export MAKEFLAGS="-j8"
 }
 
+function load_sdsc {
+    module load parallel
+    module load gcc/9.2.0
+    module load readline/8.0
+    module load ncurses/6.2
+
+    export MAKEFLAGS="-j8"
+}
+
 case $HOSTNAME in
     wireless*)  load_macbook;;
     *.local)    load_macbook;;
-    garibaldi*) load_hpc;;
-    login0*)    load_hpc;;
-    gpfs*)      load_hpc;;
-    node*)      load_hpc;;
+    login*)     load_sdsc;;
 esac
+
+# pyenv section
+if [[ -d "$HOME/.pyenv" ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+fi
 
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
@@ -58,16 +70,23 @@ if [ -f ~/dotfiles/tmux_completion.sh ]; then
     source ~/dotfiles/tmux_completion.sh
 fi
 
-if [ -d ~/python ]; then
-    PYTHONPATH=$PYTHONPATH:~/python/lib/python2.7/site-packages
-    PATH=~/python/bin:$PATH
+if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
+    source "/usr/local/etc/profile.d/bash_completion.sh"
 fi
 
 if [ -d ~/usr/local/bin ]; then
-    PATH=~/usr/local/bin:$PATH
-    MANPATH=$MANPATH:~/usr/local/man
-    MANPATH=$MANPATH:~/usr/local/share/man
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/local/lib
+    UL="$HOME/usr/local"
+    PATH=${UL}/bin:$PATH
+    MANPATH=${MANPATH}:${UL}/man:${UL}/share/man
+    LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${UL}/lib
+    PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:{UL}/lib/pkgconfig
+
+    unset UL
+fi
+
+# source the conda startup
+if [ -f ~/dotfiles/conda.bash ]; then
+    source ~/dotfiles/conda.bash
 fi
 
 # set the prompt
@@ -78,7 +97,6 @@ fi
 #####################################
 # ##### ENVIRONMENT VARIABLES ##### #
 #####################################
-export GREP_OPTIONS="--color=auto -r --binary-files=without-match --exclude-dir=.git"
 export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 export CLICOLOR=true
@@ -96,10 +114,8 @@ export PROMPT_COMMAND='history -a'
 export PROMPT_DIRTRIM=3
 
 export MANPATH
-export PYTHONPATH
 export PATH=$HOME/bin:$PATH
 
 export CDPATH=".:$HOME/.dirlinks"
 
-export CC=/opt/applications/gcc/7.3.0/bin/gcc
-export CXX=/opt/applications/gcc/7.3.0/bin/c++
+export BASH_SILENCE_DEPRECATION_WARNING=1
