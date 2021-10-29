@@ -59,6 +59,7 @@ shopt -s expand_aliases
 #shopt -s interactive_comments
 
 complete -d pd cd rmd
+complete -C '/usr/local/bin/aws_completer' aws
 
 # source custom bash completions
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
