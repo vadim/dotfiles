@@ -1,5 +1,4 @@
 # vim: set filetype=sh:
-
 if [ -r /opt/applications/Modules/current/init/bash ]; then
     source /opt/applications/Modules/current/init/bash
 fi
@@ -16,6 +15,11 @@ fi
 
 if [ -f $HOME/.git_completion.bash ]; then
     source $HOME/.git_completion.bash
+fi
+
+# source custom bash completions
+if [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
+    source /usr/local/etc/profile.d/bash_completion.sh
 fi
 
 # source custom aliases
@@ -59,9 +63,14 @@ shopt -s expand_aliases
 #shopt -s interactive_comments
 
 complete -d pd cd rmd
+<<<<<<< Updated upstream
 complete -C '/usr/local/bin/aws_completer' aws
+=======
+complete -C /usr/local/bin/terraform terraform
+complete -C /usr/local/bin/aws_completer aws
+>>>>>>> Stashed changes
 
-# source custom bash completions
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    source /opt/local/etc/profile.d/bash_completion.sh
+# pyenv section
+if [[ -d "$HOME/.pyenv" ]]; then
+    eval "$(pyenv init -)"
 fi
