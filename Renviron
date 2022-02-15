@@ -1,2 +1,2 @@
+R_MAX_VSIZE=100Gb
 R_LIBS_USER="/Users/vadim/R/library"
-R_MAX_VSIZE = 20GB

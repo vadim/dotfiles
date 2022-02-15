@@ -63,12 +63,8 @@ shopt -s expand_aliases
 #shopt -s interactive_comments
 
 complete -d pd cd rmd
-<<<<<<< Updated upstream
-complete -C '/usr/local/bin/aws_completer' aws
-=======
 complete -C /usr/local/bin/terraform terraform
 complete -C /usr/local/bin/aws_completer aws
->>>>>>> Stashed changes
 
 # pyenv section
 if [[ -d "$HOME/.pyenv" ]]; then

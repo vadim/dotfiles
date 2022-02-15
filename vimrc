@@ -30,6 +30,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'cespare/vim-toml'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 filetype plugin indent on " load filetype-specific indent files
@@ -263,6 +264,7 @@ if has("autocmd")
                \ endif
 
     au BufNewFile,BufRead *.txt :setf txt
+    au BufNewFile,BufRead *.lock :setf json
     au BufNewFile,BufRead *.txt :set spell
     au BufNewFile,BufRead *.md :setf markdown
 
@@ -312,6 +314,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_r_lintr_checker = 1
+let g:syntastic_r_checkers = ['lintr']
 " }}}
 
 runtime macros/matchit.vim

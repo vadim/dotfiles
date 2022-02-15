@@ -1,39 +1,30 @@
 # vim: set filetype=sh:
+
+# pyenv section
+if [[ -d "$HOME/.pyenv" ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    PATH="$PYENV_ROOT/bin:$PATH"
+
+    eval "$(pyenv init --path)"
+fi
+
 function load_macbook {
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/local/lib
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$(brew --prefix)/lib"
+    export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
-    PATH=/sbin:/usr/sbin:$PATH
-    PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
-    MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
+    MANPATH=/usr/local/share/man:/usr/local/man:$MANPATH
 
     if [ -x "$(command -v pandoc)" ]; then
         eval "$(pandoc --bash-completion)"
     fi
 
+    # pypoetry section
+    if [[ -f "$HOME/.local/bin/poetry" ]]; then
+        PATH=$HOME/.local/bin:$PATH
+    fi
 
-    export MAKEFLAGS="-j$(sysctl -n hw.ncpu)"
-}
-
-function load_gari {
-    PATH=$PATH:/gpfs/group/williamson/bin
-    PATH=$PATH:$MASSACRE_PATH/bin
-    PATH=$PATH:~/devel
-
-    export R_LIBS=$HOME/R/library
-    export BOWTIE2_INDEXES=$HOME/genomes/bowtie2_indexes
-
-    module load R
-    module load cmake/3.16.2
-    module load gcc/7.3.0
-    module load tpp/4.8.0
-    module load massacre/devel
-    module load blast
-    module load python
-    module load bowtie2
-    module load samtools/1.9
-
-    export MAKEFLAGS="-j8"
+    export MAKEFLAGS="-j$(nproc)"
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 }
 
 function load_sdsc {
@@ -50,13 +41,6 @@ case $HOSTNAME in
     *.local)    load_macbook;;
     login*)     load_sdsc;;
 esac
-
-# pyenv section
-if [[ -d "$HOME/.pyenv" ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-fi
 
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
@@ -84,19 +68,16 @@ if [ -d ~/usr/local/bin ]; then
     unset UL
 fi
 
-# source the conda startup
-if [ -f ~/dotfiles/conda.bash ]; then
-    source ~/dotfiles/conda.bash
-fi
-
 # set the prompt
 if [ -f ~/.bash_prompt ]; then
     source ~/.bash_prompt
 fi
 
-#####################################
-# ##### ENVIRONMENT VARIABLES ##### #
-#####################################
+if [ -d ~/bin ]; then
+    PATH=$HOME/bin:$PATH
+fi
+
+# ENVIRONMENT VARIABLES
 export GREP_COLORS="ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 export CLICOLOR=true
@@ -114,8 +95,6 @@ export PROMPT_COMMAND='history -a'
 export PROMPT_DIRTRIM=3
 
 export MANPATH
-export PATH=$HOME/bin:$PATH
-
+export PATH
 export CDPATH=".:$HOME/.dirlinks"
-
 export BASH_SILENCE_DEPRECATION_WARNING=1

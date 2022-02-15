@@ -1,7 +1,7 @@
 # vim: set filetype=gitconfig:
 [user]
-    name = Vadim Patsalo
-    email = patsalov@gmail.com
+    name = vadim
+    email = 86705+vadim@users.noreply.github.com
 
 [alias]
     ci = commit -a
@@ -10,15 +10,13 @@
     p  = pull
     u  = push
     nb = checkout -b
+    s  = status --short
     st = status
     ls = ls-files
     sl = stash list
     sa = stash apply
     sd = stash drop
     lo = log --pretty=oneline
-    ff = flow feature
-    fr = flow release
-    fh = flow hotfix
     vd = difftool -y -t vimdiff
     undo-commit = reset --soft HEAD^
     unstage = reset HEAD --
@@ -59,9 +57,21 @@
 
 [credential]
     helper = osxkeychain
+
 [help]
     autocorrect = 1
 
 [core]
     PreloadIndex = true
     editor = vim
+    autocrlf = input
+    excludesfile = /Users/vadim/.gitignore
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[init]
+    defaultBranch = main

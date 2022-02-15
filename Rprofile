@@ -23,16 +23,16 @@ options(repos             = c(CRAN = "https://cran.rstudio.com/"),
 
 options(cores    = parallel::detectCores())
 options(mc.cores = parallel::detectCores())
-# options(width = as.integer(system2('tput', 'cols', stdout = T, stderr = T)))
+options(width = as.integer(system2('tput', 'cols', stdout = T, stderr = T)))
 # options(width = as.integer(Sys.getenv('COLUMNS')))
 
-options(devtools.name        = 'Vadim Patsalo')
-options(devtools.desc.author = 'person("Vadim", "Patsalo",
-                       email = "vadim.patsalo@gmail.com",
-                        role = c("aut", "cre"))')
-
 if (interactive()) {
-    suppressMessages(require(devtools))
+    # suppressMessages(require(devtools))
+
+    # options(devtools.name        = 'Vadim Patsalo')
+    # options(devtools.desc.author = 'person("Vadim", "Patsalo",
+    #         email = "vadim.patsalo@gmail.com",
+    #         role = c("aut", "cre"))')
 }
 
 source(file.path(Sys.getenv('HOME'), 'R', 'mystuff.R'))
