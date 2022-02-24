@@ -1,7 +1,7 @@
 # vim: set filetype=sh:
 
 # pyenv section
-if [[ -d "$HOME/.pyenv" ]]; then
+if [ -d "$HOME/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     PATH="$PYENV_ROOT/bin:$PATH"
 
@@ -19,11 +19,14 @@ function load_macbook {
     fi
 
     # pypoetry section
-    if [[ -f "$HOME/.local/bin/poetry" ]]; then
+    if [ -f "$HOME/.local/bin/poetry" ]; then
         PATH=$HOME/.local/bin:$PATH
     fi
 
-    export MAKEFLAGS="-j$(nproc)"
+    if [ -x "$(command -v nproc &> /dev/null)" ]; then
+        export MAKEFLAGS="-j$(nproc)"
+    fi
+
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 }
 
@@ -54,7 +57,7 @@ if [ -f ~/dotfiles/tmux_completion.sh ]; then
     source ~/dotfiles/tmux_completion.sh
 fi
 
-if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
+if [ -r "/usr/local/etc/profile.d/bash_completion.sh" ]; then
     source "/usr/local/etc/profile.d/bash_completion.sh"
 fi
 

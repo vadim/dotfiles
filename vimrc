@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 syntax enable
 " }}}
+
 " Vim-plug {{{
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -17,28 +18,27 @@ Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'zeis/vim-kolor'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'cespare/vim-toml'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-rmarkdown'
+
+Plug 'zeis/vim-kolor'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
-Plug 'cespare/vim-toml'
-Plug 'hashivim/vim-terraform'
 
 call plug#end()
+
 filetype plugin indent on " load filetype-specific indent files
 
 " }}}
 " colors {{{
 set background=dark
-colorscheme default
+colorscheme onedark
 " }}}
 " spaces and tabs {{{
 set tabstop=4     " an indentation level every four columns
@@ -301,14 +301,11 @@ if has("autocmd")
     augroup end
 endif
 " }}}
+
 " commenting {{{
 noremap <leader>/ :Commentary<cr>
 " }}}
-" R markdown {{{
-iab <silent> rs ```{r}
-iab <silent> re ```
 
-" }}}
 " Syntastic settings {{{
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -337,12 +334,10 @@ set laststatus=2 " always show the status line
 set ttyfast " send lines to terminal faster
 set ttyscroll=5
 
-" vim:foldmethod=marker:foldlevel=0
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindow
-
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']

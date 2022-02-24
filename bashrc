@@ -33,7 +33,7 @@ if [ -f $HOME/.bash_functions ]; then
 fi
 
 # source dircolors definitions
-if [[ "$OSTYPE" == linux* ]]; then
+if [ "$OSTYPE" == linux* ]; then
     if [ -f "$HOME/.dir_colors" ]; then
         eval $(dircolors -b $HOME/.dir_colors)
     fi
@@ -67,6 +67,6 @@ complete -C /usr/local/bin/terraform terraform
 complete -C /usr/local/bin/aws_completer aws
 
 # pyenv section
-if [[ -d "$HOME/.pyenv" ]]; then
+if [ -d "$HOME/.pyenv" ]; then
     eval "$(pyenv init -)"
 fi
