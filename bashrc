@@ -3,6 +3,10 @@ if [ -r /opt/applications/Modules/current/init/bash ]; then
     source /opt/applications/Modules/current/init/bash
 fi
 
+if [ -f /etc/bashrc ]; then
+    source /etc/bashrc
+fi
+
 # source bash completion
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
@@ -50,17 +54,17 @@ shopt -s sourcepath
 shopt -s no_empty_cmd_completion
 shopt -s expand_aliases
 
-#shopt -s cdable_vars
-#shopt -s mailwarn
-#shopt -s cmdhist
-#shopt -s histappend histreedit histverify
-#shopt -s lithist
-#shopt -s extglob
-#shopt -s dotglob
-#shopt -s progcomp
-#shopt -s promptvars
-#shopt -s hostcomplete
-#shopt -s interactive_comments
+# shopt -s cdable_vars
+# shopt -s mailwarn
+# shopt -s cmdhist
+# shopt -s histappend histreedit histverify
+# shopt -s lithist
+# shopt -s extglob
+# shopt -s dotglob
+# shopt -s progcomp
+# shopt -s promptvars
+# shopt -s hostcomplete
+# shopt -s interactive_comments
 
 complete -d pd cd rmd
 complete -C /usr/local/bin/terraform terraform
