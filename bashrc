@@ -4,6 +4,10 @@ if [ -r /opt/applications/Modules/current/init/bash ]; then
     source /opt/applications/Modules/current/init/bash
 fi
 
+if [ -f /etc/bashrc ]; then
+    source /etc/bashrc
+fi
+
 # source bash completion
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
