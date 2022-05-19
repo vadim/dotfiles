@@ -1,6 +1,6 @@
 # vim: set filetype=gitconfig:
 [user]
-    name = vadim
+    name = Vadim Patsalo
     email = 86705+vadim@users.noreply.github.com
 
 [alias]

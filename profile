@@ -40,21 +40,29 @@ function load_sdsc {
 }
 
 case $HOSTNAME in
-    wireless*)  load_macbook;;
-    *.local)    load_macbook;;
-    login*)     load_sdsc;;
+    wireless*) load_macbook;;
+    *.local)   load_macbook;;
+    login*)    load_sdsc;;
 esac
 
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-if [ -f ~/.git-prompt.sh ]; then
-    source ~/.git-prompt.sh
+if [ -f ~/dotfiles/git-prompt.sh ]; then
+    source ~/dotfiles/git-prompt.sh
 fi
 
-if [ -f ~/dotfiles/tmux_completion.sh ]; then
-    source ~/dotfiles/tmux_completion.sh
+if [ -f ~/dotfiles/git.bash-completion ]; then
+    source ~/dotfiles/git.bash-completion
+fi
+
+if [ -f ~/dotfiles/tmux.bash-completion ]; then
+    source ~/dotfiles/tmux.bash-completion
+fi
+
+if [ -f ~/dotfiles/poetry.bash-completion ]; then
+    source ~/dotfiles/poetry.bash-completion
 fi
 
 if [ -r "/usr/local/etc/profile.d/bash_completion.sh" ]; then
@@ -72,8 +80,8 @@ if [ -d ~/usr/local/bin ]; then
 fi
 
 # set the prompt
-if [ -f ~/.bash_prompt ]; then
-    source ~/.bash_prompt
+if [ -f ~/dotfiles/bash_prompt ]; then
+    source ~/dotfiles/bash_prompt
 fi
 
 if [ -d ~/bin ]; then

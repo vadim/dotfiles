@@ -17,10 +17,6 @@ if [ -f $HOME/.bash_completion ]; then
     source $HOME/.bash_completion
 fi
 
-if [ -f $HOME/.git_completion.bash ]; then
-    source $HOME/.git_completion.bash
-fi
-
 # source custom bash completions
 if [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
     source /usr/local/etc/profile.d/bash_completion.sh
