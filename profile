@@ -65,6 +65,10 @@ if [ -f ~/dotfiles/poetry.bash-completion ]; then
     source ~/dotfiles/poetry.bash-completion
 fi
 
+if [ -f ~/dotfiles/docker.bash-completion ]; then
+    source ~/dotfiles/docker.bash-completion
+fi
+
 if [ -r "/usr/local/etc/profile.d/bash_completion.sh" ]; then
     source "/usr/local/etc/profile.d/bash_completion.sh"
 fi

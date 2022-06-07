@@ -23,8 +23,8 @@ if [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
 fi
 
 # source custom aliases
-if [ -f $HOME/.aliases ]; then
-    source $HOME/.aliases
+if [ -f $HOME/dotfiles/aliases ]; then
+    source $HOME/dotfiles/aliases
 fi
 
 # source bash functions
