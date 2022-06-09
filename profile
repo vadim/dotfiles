@@ -19,11 +19,11 @@ function load_macbook {
     fi
 
     # pypoetry section
-    if [ -f "$HOME/.local/bin/poetry" ]; then
-        PATH=$HOME/.local/bin:$PATH
+    if [ -f "$HOME/.poetry/bin/poetry" ]; then
+        PATH=$HOME/.poetry/bin:$PATH
     fi
 
-    if [ -x "$(command -v nproc &> /dev/null)" ]; then
+    if [ -x "$(command -v nproc)" ]; then
         export MAKEFLAGS="-j$(nproc)"
     fi
 
@@ -113,3 +113,5 @@ export MANPATH
 export PATH
 export CDPATH=".:$HOME/.dirlinks"
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export PATH="$HOME/.poetry/bin:$PATH"

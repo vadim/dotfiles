@@ -157,4 +157,4 @@ _tmux() {
       return 0
 
 }
-complete -F _tmux tmux
+complete -F _tmux tmux t
