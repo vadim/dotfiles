@@ -68,7 +68,7 @@ set complete=.,b,w,u,t,i
 set completeopt=menu,preview
 set wildmenu
 set wildmode=list:longest,full
-set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
+set wildignore+=*.o,*.obj,*.bak,*.exe,*.swp
 set wildignore+=doc
 set wildignore+=.git
 set wildignore+=.git/*
@@ -219,7 +219,14 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 1
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" Ignore some folders and files for CtrlP indexing
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe,swp,so,dll)$',
+  \ }
+
 nnoremap <leader>. :CtrlPTag<cr>
 " }}}
 " list settings {{{
@@ -333,11 +340,5 @@ set noerrorbells
 set laststatus=2 " always show the status line
 set ttyfast " send lines to terminal faster
 set ttyscroll=5
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
