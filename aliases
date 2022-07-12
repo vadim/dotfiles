@@ -48,3 +48,5 @@ alias t='tmux'
 alias tre='tree'
 alias grep='grep --color=auto -r --binary-files=without-match --exclude-dir=.git'
 alias py='python3'
+
+alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/§/g;s/$/¶/g'"
